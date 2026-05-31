@@ -1,11 +1,7 @@
 // GitHub AI Translator - content.js
-// Переводит тексты на странице GitHub
-
 console.log('GitHub AI Translator загружен!');
 
-// Полный словарь переводов для GitHub (меню, панели, кнопки)
 const translations = {
-  // Верхнее меню
   'Code': 'Код',
   'Issues': 'Проблемы',
   'Pull requests': 'Запросы на изменение',
@@ -15,8 +11,6 @@ const translations = {
   'Insights': 'Аналитика',
   'Sponsor': 'Спонсор',
   'Settings': 'Настройки',
-  
-  // Основные действия
   'Sign in': 'Войти',
   'Sign up': 'Зарегистрироваться',
   'Log in': 'Войти',
@@ -37,8 +31,6 @@ const translations = {
   'Hide': 'Скрыть',
   'Search': 'Поиск',
   'Find': 'Найти',
-  
-  // Репозитории
   'Repository': 'Репозиторий',
   'Repositories': 'Репозитории',
   'My repositories': 'Мои репозитории',
@@ -67,8 +59,6 @@ const translations = {
   'Commits': 'Коммиты',
   'Merge': 'Слить',
   'Rebase': 'Перебазирование',
-  
-  // Файлы
   'File': 'Файл',
   'Files': 'Файлы',
   'Folder': 'Папка',
@@ -76,7 +66,6 @@ const translations = {
   'Readme': 'Читай меня',
   'README': 'Читай меня',
   'License': 'Лицензия',
-  'Culture': 'Культура',
   'Create new file': 'Создать новый файл',
   'New file': 'Новый файл',
   'New folder': 'Новая папка',
@@ -89,10 +78,7 @@ const translations = {
   'Size': 'Размер',
   'Last commit': 'Последний коммит',
   'Age': 'Возраст',
-  
-  // Профиль
   'Your profile': 'Ваш профиль',
-  'Your repositories': 'Ваши репозитории',
   'Your projects': 'Ваши проекты',
   'Your packages': 'Ваши пакеты',
   'Your gists': 'Ваши гисты',
@@ -105,14 +91,9 @@ const translations = {
   'Explore': 'Исследовать',
   'Marketplace': 'Маркетплейс',
   'Gists': 'Гисты',
-  'Stars': 'Звёзды',
-  'Watching': 'Слежу',
   'Notifications': 'Уведомления',
   'Sponsorships': 'Спонсорство',
-  
-  // Страница репозитория
   'About': 'О проекте',
-  'Readme': 'Читай меня',
   'Contributors': 'Контрибьюторы',
   'Pull': 'Втянуть',
   'Push': 'Отправить',
@@ -120,26 +101,19 @@ const translations = {
   'Created': 'Создано',
   'Updated': 'Обновлено',
   'Languages': 'Языки',
-  'License': 'Лицензия',
   'Released': 'Выпущено',
   'Latest': 'Последний',
   'Version': 'Версия',
-  
-  // Проблемы и запросы
   'Issue': 'Проблема',
-  'Issues': 'Проблемы',
   'Open issues': 'Открытые проблемы',
   'Closed issues': 'Закрытые проблемы',
-  'Open': 'Открыть',
   'Closed': 'Закрыт',
   'Open pull requests': 'Открытые запросы',
   'Closed pull requests': 'Закрытые запросы',
   'Draft': 'Черновик',
   'Merged': 'Слит',
   'Pending': 'Ожидание',
-  
-  // Кнопки действий
-  'Subscribe': 'Подписаться',
+  'Subscribe': 'Подделиться',
   'Unsubscribe': 'Отписаться',
   'Comment': 'Комментарий',
   'Comments': 'Комментарии',
@@ -147,33 +121,23 @@ const translations = {
   'Reviews': 'Обзоры',
   'Approve': 'Одобрить',
   'Request changes': 'Запросить изменения',
-  'Comment': 'Комментировать',
   'Reply': 'Ответить',
-  'Edit': 'Изменить',
-  'Delete': 'Удалить',
-  
-  // Прочее
   'Owner': 'Владелец',
   'Organization': 'Организация',
   'Team': 'Команда',
   'Members': 'Участники',
   'Member': 'Участник',
   'Admin': 'Админ',
-  'Owner': 'Владелец',
   'Collaborators': 'Коллабораторы',
   'Contributing': 'Вклад',
   'Code of conduct': 'Кодекс поведения',
-  'Security': 'Безопасность',
   'Audit log': 'Журнал аудита',
   'People': 'Люди',
   'Topology': 'Топология',
   'Dependabot': 'Депендабот',
-  'Packages': 'Пакеты',
   'Pages': 'Страницы',
   'Environments': 'Среды',
-  'CICD': 'CI/CD',
   'Workflows': 'Рабочие процессы',
-  'Actions': 'Действия',
   'Cache': 'Кэш',
   'Dependencies': 'Зависимости',
   'Vulnerabilities': 'Уязвимости',
@@ -183,75 +147,17 @@ const translations = {
   'Activity': 'Активность',
   'Traffic': 'Трафик',
   'Caches': 'Кэши',
-  'Versions': 'Версии',
-  
-  // Грамматические формы
-  'of': 'из',
-  'and': 'и',
-  'or': 'или',
-  'with': 'с',
-  'for': 'для',
-  'on': 'на',
-  'in': 'в',
-  'to': 'к',
-  'from': 'от',
-  'by': 'от',
-  'at': 'в',
-  'is': 'есть',
-  'are': 'являются',
-  'was': 'был',
-  'were': 'были',
-  'be': 'быть',
-  'been': 'был',
-  'have': 'иметь',
-  'has': 'имеет',
-  'had': 'имел',
-  'do': 'делать',
-  'does': 'делает',
-  'did': 'сделал',
-  'will': 'будет',
-  'would': 'бы',
-  'could': 'мог',
-  'should': 'должен',
-  'may': 'может',
-  'might': 'мог бы',
-  'must': 'должен',
-  'can': 'может',
-  'need': 'нужно',
-  'want': 'хочу',
-  'like': 'нравится',
-  'love': 'люблю',
-  'help': 'помощь',
-  'more': 'ещё',
-  'less': 'меньше',
-  'new': 'новый',
-  'old': 'старый',
-  'first': 'первый',
-  'last': 'последний',
-  'next': 'следующий',
-  'previous': 'предыдущий',
-  'today': 'сегодня',
-  'yesterday': 'вчера',
-  'week': 'неделя',
-  'month': 'месяц',
-  'year': 'год',
-  'days': 'дней',
-  'hours': 'часов',
-  'minutes': 'минут',
-  'seconds': 'секунд'
+  'Versions': 'Версии'
 };
 
-// Функция перевода текста
 function translateText(text) {
   return translations[text] || text;
 }
 
-// Найти все тексты на странице и перевести
 function translatePage() {
   const elements = document.querySelectorAll('*');
   
-  elements.forEach(element => {
-    // Пропускаем скрипты, стили и خود расширение
+  elements.forEach(function(element) {
     if (element.tagName === 'SCRIPT' || 
         element.tagName === 'STYLE' || 
         element.closest('[data-translator-ignored]')) {
@@ -260,20 +166,15 @@ function translatePage() {
     
     const text = element.textContent.trim();
     
-    // Если текст есть и он есть в словаре — переводим
     if (text && translations[text]) {
       const originalText = element.textContent;
       element.textContent = originalText.replace(text, translations[text]);
-      
-      // Добавляем класс для отладки (можно убрать)
       element.classList.add('translated');
     }
   });
 }
 
-// Запустить перевод после загрузки страницы
 setTimeout(translatePage, 1000);
 
-// Переводить при изменениях на странице
 const observer = new MutationObserver(translatePage);
 observer.observe(document.body, { childList: true, subtree: true });
