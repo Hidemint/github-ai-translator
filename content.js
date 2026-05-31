@@ -1,180 +1,120 @@
 // GitHub AI Translator - content.js
-console.log('GitHub AI Translator загружен!');
+// Переводит тексты на странице GitHub с помощью DeepL AI
 
-const translations = {
-  'Code': 'Код',
-  'Issues': 'Проблемы',
-  'Pull requests': 'Запросы на изменение',
-  'Actions': 'Действия',
-  'Projects': 'Проекты',
-  'Security': 'Безопасность',
-  'Insights': 'Аналитика',
-  'Sponsor': 'Спонсор',
-  'Settings': 'Настройки',
-  'Sign in': 'Войти',
+console.log('GitHub AI Translator с AI загружен!');
+
+// Локальный словарь (для часто встречающихся слов)
+const localTranslations = {
   'Sign up': 'Зарегистрироваться',
   'Log in': 'Войти',
-  'Log out': 'Выйти',
-  'Logout': 'Выйти',
-  'New': 'Новый',
-  'Create': 'Создать',
-  'Add': 'Добавить',
-  'Edit': 'Изменить',
-  'Save': 'Сохранить',
-  'Cancel': 'Отмена',
-  'Delete': 'Удалить',
-  'Remove': 'Удалить',
-  'Close': 'Закрыть',
-  'Open': 'Открыть',
-  'View': 'Просмотр',
-  'Show': 'Показать',
-  'Hide': 'Скрыть',
-  'Search': 'Поиск',
-  'Find': 'Найти',
   'Repository': 'Репозиторий',
-  'Repositories': 'Репозитории',
-  'My repositories': 'Мои репозитории',
-  'Your repositories': 'Ваши репозитории',
-  'Public': 'Публичный',
-  'Private': 'Частный',
-  'Fork': 'Форк',
-  'Forks': 'Форки',
-  'Star': 'Звезда',
-  'Stars': 'Звёзды',
-  'Watch': 'Слежу',
-  'Watching': 'Слежу',
-  'Unwatch': 'Перестать следить',
-  'Clone': 'Клонировать',
-  'Download': 'Скачать',
-  'Source': 'Исходный код',
-  'Branch': 'Ветка',
-  'Branches': 'Ветви',
-  'Main': 'Основная',
-  'Master': 'Мастер',
-  'Tag': 'Тег',
-  'Tags': 'Теги',
-  'Release': 'Релиз',
-  'Releases': 'Релизы',
   'Commit': 'Коммит',
-  'Commits': 'Коммиты',
-  'Merge': 'Слить',
-  'Rebase': 'Перебазирование',
-  'File': 'Файл',
-  'Files': 'Файлы',
-  'Folder': 'Папка',
-  'Folders': 'Папки',
+  'Branch': 'Ветка',
+  'Pull Request': 'Запрос на внесение изменений',
+  'Issues': 'Проблемы',
+  'Projects': 'Проекты',
   'Readme': 'Читай меня',
-  'README': 'Читай меня',
-  'License': 'Лицензия',
   'Create new file': 'Создать новый файл',
-  'New file': 'Новый файл',
-  'New folder': 'Новая папка',
-  'Upload files': 'Загрузить файлы',
-  'Upload': 'Загрузить',
   'Commit changes': 'Внести изменения',
-  'Commit message': 'Сообщение коммита',
-  'Description': 'Описание',
-  'Name': 'Имя',
-  'Size': 'Размер',
-  'Last commit': 'Последний коммит',
-  'Age': 'Возраст',
-  'Your profile': 'Ваш профиль',
-  'Your projects': 'Ваши проекты',
-  'Your packages': 'Ваши пакеты',
-  'Your gists': 'Ваши гисты',
-  'Your stars': 'Ваши звёзды',
-  'Your work': 'Ваша работа',
-  'Profile': 'Профиль',
-  'Account': 'Аккаунт',
-  'Overview': 'Обзор',
-  'Dashboard': 'Панель управления',
-  'Explore': 'Исследовать',
-  'Marketplace': 'Маркетплейс',
-  'Gists': 'Гисты',
-  'Notifications': 'Уведомления',
-  'Sponsorships': 'Спонсорство',
-  'About': 'О проекте',
-  'Contributors': 'Контрибьюторы',
-  'Pull': 'Втянуть',
-  'Push': 'Отправить',
-  'Pushed': 'Отправлено',
-  'Created': 'Создано',
-  'Updated': 'Обновлено',
-  'Languages': 'Языки',
-  'Released': 'Выпущено',
-  'Latest': 'Последний',
-  'Version': 'Версия',
-  'Issue': 'Проблема',
-  'Open issues': 'Открытые проблемы',
-  'Closed issues': 'Закрытые проблемы',
-  'Closed': 'Закрыт',
-  'Open pull requests': 'Открытые запросы',
-  'Closed pull requests': 'Закрытые запросы',
-  'Draft': 'Черновик',
-  'Merged': 'Слит',
-  'Pending': 'Ожидание',
-  'Subscribe': 'Подделиться',
-  'Unsubscribe': 'Отписаться',
-  'Comment': 'Комментарий',
-  'Comments': 'Комментарии',
-  'Review': 'Обзор',
-  'Reviews': 'Обзоры',
-  'Approve': 'Одобрить',
-  'Request changes': 'Запросить изменения',
-  'Reply': 'Ответить',
-  'Owner': 'Владелец',
-  'Organization': 'Организация',
-  'Team': 'Команда',
-  'Members': 'Участники',
-  'Member': 'Участник',
-  'Admin': 'Админ',
-  'Collaborators': 'Коллабораторы',
-  'Contributing': 'Вклад',
-  'Code of conduct': 'Кодекс поведения',
-  'Audit log': 'Журнал аудита',
-  'People': 'Люди',
-  'Topology': 'Топология',
-  'Dependabot': 'Депендабот',
-  'Pages': 'Страницы',
-  'Environments': 'Среды',
-  'Workflows': 'Рабочие процессы',
-  'Cache': 'Кэш',
-  'Dependencies': 'Зависимости',
-  'Vulnerabilities': 'Уязвимости',
-  'Alerts': 'Предупреждения',
-  'Graphs': 'Графики',
-  'Network': 'Сеть',
-  'Activity': 'Активность',
-  'Traffic': 'Трафик',
-  'Caches': 'Кэши',
-  'Versions': 'Версии'
+  'Sign in': 'Войти',
+  'Add a file': 'Добавить файл',
+  'Code': 'Код'
 };
 
-function translateText(text) {
-  return translations[text] || text;
+// Кэш в localStorage (чтобы не запрашивать AI для одного и того же)
+function getCachedTranslation(text) {
+  return localStorage.getItem('translation_' + text);
 }
 
-function translatePage() {
-  const elements = document.querySelectorAll('*');
-  
-  elements.forEach(function(element) {
-    if (element.tagName === 'SCRIPT' || 
-        element.tagName === 'STYLE' || 
-        element.closest('[data-translator-ignored]')) {
-      return;
+function cacheTranslation(text, translated) {
+  localStorage.setItem('translation_' + text, translated);
+}
+
+// Функция перевода через DeepL API
+async function translateWithDeepL(text) {
+  // Сначала проверяем кэш
+  const cached = getCachedTranslation(text);
+  if (cached) {
+    console.log('Из кэша:', text, '→', cached);
+    return cached;
+  }
+
+  // Проверяем локальный словарь
+  if (localTranslations[text]) {
+    cacheTranslation(text, localTranslations[text]);
+    return localTranslations[text];
+  }
+
+  try {
+    // Получаем API key из chrome.storage (расширение хранит его безопасно)
+    const result = await chrome.storage.sync.get(['deeplApiKey']);
+    const apiKey = result.deeplApiKey;
+
+    if (!apiKey) {
+      console.warn('API key не найден! Настрой его в расширении.');
+      return text;
     }
-    
+
+    // Запрос к DeepL API
+    const response = await fetch('https://api-free.deepl.com/v2/translate', {
+      method: 'POST',
+      headers: {
+        'Authorization': `DeepL-Auth-Key ${apiKey}`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        text: [text],
+        target_lang: 'RU'
+      })
+    });
+
+    const data = await response.json();
+
+    if (data.translations && data.translations[0]) {
+      const translated = data.translations[0].text;
+      cacheTranslation(text, translated);
+      console.log('From DeepL:', text, '→', translated);
+      return translated;
+    }
+
+    return text;
+  } catch (error) {
+    console.error('Ошибка перевода:', error);
+    return text;
+  }
+}
+
+// Перевести все тексты на странице
+async function translatePage() {
+  const elements = document.querySelectorAll('*');
+  const textsToTranslate = [];
+
+  // Собрать все уникальные тексты
+  elements.forEach(element => {
     const text = element.textContent.trim();
-    
-    if (text && translations[text]) {
-      const originalText = element.textContent;
-      element.textContent = originalText.replace(text, translations[text]);
-      element.classList.add('translated');
+    if (text && text.length > 1 && text.length < 200 && !textsToTranslate.includes(text)) {
+      textsToTranslate.push(text);
     }
   });
+
+  // Перевести каждый текст
+  for (const text of textsToTranslate) {
+    const translated = await translateWithDeepL(text);
+    if (translated !== text) {
+      // Найти элементы с этим текстом и заменить
+      elements.forEach(element => {
+        if (element.textContent.trim() === text) {
+          element.textContent = element.textContent.replace(text, translated);
+          element.classList.add('translated');
+        }
+      });
+    }
+  }
 }
 
-setTimeout(translatePage, 1000);
+// Запустить перевод после загрузки страницы
+setTimeout(translatePage, 2000);
 
+// Переводить при изменениях на странице
 const observer = new MutationObserver(translatePage);
 observer.observe(document.body, { childList: true, subtree: true });

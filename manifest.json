@@ -1,23 +1,17 @@
 {
   "manifest_version": 3,
   "name": "GitHub AI Translator",
-  "version": "1.0.0",
-  "description": "Переводит интерфейс GitHub на любой язык с помощью ИИ",
-  "permissions": [
-    "activeTab",
-    "storage"
-  ],
+  "version": "1.1.0",
+  "description": "Переводит интерфейс GitHub на любой язык с помощью ИИ (DeepL)",
+  "permissions": ["activeTab", "storage", "scripting"],
   "content_scripts": [
     {
-      "matches": [
-        "https://github.com/*"
-      ],
-      "js": [
-        "content.js"
-      ],
-      "css": [
-        "styles.css"
-      ]
+      "matches": ["https://github.com/*"],
+      "js": ["content.js"],
+      "css": ["styles.css"]
     }
-  ]
+  ],
+  "icons": {
+    "48": "icon.png"
+  }
 }
