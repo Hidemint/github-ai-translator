@@ -1,0 +1,6 @@
+/* GitHub AI Translator - styles.css */
+
+/* Подсветка переведённого текста (опционально) */
+.translated {
+  background-color: rgba(0, 255, 0, 0.1);
+}
