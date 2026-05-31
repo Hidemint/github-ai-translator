@@ -1,0 +1,180 @@
+// GitHub AI Translator - content.js
+console.log('GitHub AI Translator загружен!');
+
+const translations = {
+  'Code': 'Код',
+  'Issues': 'Проблемы',
+  'Pull requests': 'Запросы на изменение',
+  'Actions': 'Действия',
+  'Projects': 'Проекты',
+  'Security': 'Безопасность',
+  'Insights': 'Аналитика',
+  'Sponsor': 'Спонсор',
+  'Settings': 'Настройки',
+  'Sign in': 'Войти',
+  'Sign up': 'Зарегистрироваться',
+  'Log in': 'Войти',
+  'Log out': 'Выйти',
+  'Logout': 'Выйти',
+  'New': 'Новый',
+  'Create': 'Создать',
+  'Add': 'Добавить',
+  'Edit': 'Изменить',
+  'Save': 'Сохранить',
+  'Cancel': 'Отмена',
+  'Delete': 'Удалить',
+  'Remove': 'Удалить',
+  'Close': 'Закрыть',
+  'Open': 'Открыть',
+  'View': 'Просмотр',
+  'Show': 'Показать',
+  'Hide': 'Скрыть',
+  'Search': 'Поиск',
+  'Find': 'Найти',
+  'Repository': 'Репозиторий',
+  'Repositories': 'Репозитории',
+  'My repositories': 'Мои репозитории',
+  'Your repositories': 'Ваши репозитории',
+  'Public': 'Публичный',
+  'Private': 'Частный',
+  'Fork': 'Форк',
+  'Forks': 'Форки',
+  'Star': 'Звезда',
+  'Stars': 'Звёзды',
+  'Watch': 'Слежу',
+  'Watching': 'Слежу',
+  'Unwatch': 'Перестать следить',
+  'Clone': 'Клонировать',
+  'Download': 'Скачать',
+  'Source': 'Исходный код',
+  'Branch': 'Ветка',
+  'Branches': 'Ветви',
+  'Main': 'Основная',
+  'Master': 'Мастер',
+  'Tag': 'Тег',
+  'Tags': 'Теги',
+  'Release': 'Релиз',
+  'Releases': 'Релизы',
+  'Commit': 'Коммит',
+  'Commits': 'Коммиты',
+  'Merge': 'Слить',
+  'Rebase': 'Перебазирование',
+  'File': 'Файл',
+  'Files': 'Файлы',
+  'Folder': 'Папка',
+  'Folders': 'Папки',
+  'Readme': 'Читай меня',
+  'README': 'Читай меня',
+  'License': 'Лицензия',
+  'Create new file': 'Создать новый файл',
+  'New file': 'Новый файл',
+  'New folder': 'Новая папка',
+  'Upload files': 'Загрузить файлы',
+  'Upload': 'Загрузить',
+  'Commit changes': 'Внести изменения',
+  'Commit message': 'Сообщение коммита',
+  'Description': 'Описание',
+  'Name': 'Имя',
+  'Size': 'Размер',
+  'Last commit': 'Последний коммит',
+  'Age': 'Возраст',
+  'Your profile': 'Ваш профиль',
+  'Your projects': 'Ваши проекты',
+  'Your packages': 'Ваши пакеты',
+  'Your gists': 'Ваши гисты',
+  'Your stars': 'Ваши звёзды',
+  'Your work': 'Ваша работа',
+  'Profile': 'Профиль',
+  'Account': 'Аккаунт',
+  'Overview': 'Обзор',
+  'Dashboard': 'Панель управления',
+  'Explore': 'Исследовать',
+  'Marketplace': 'Маркетплейс',
+  'Gists': 'Гисты',
+  'Notifications': 'Уведомления',
+  'Sponsorships': 'Спонсорство',
+  'About': 'О проекте',
+  'Contributors': 'Контрибьюторы',
+  'Pull': 'Втянуть',
+  'Push': 'Отправить',
+  'Pushed': 'Отправлено',
+  'Created': 'Создано',
+  'Updated': 'Обновлено',
+  'Languages': 'Языки',
+  'Released': 'Выпущено',
+  'Latest': 'Последний',
+  'Version': 'Версия',
+  'Issue': 'Проблема',
+  'Open issues': 'Открытые проблемы',
+  'Closed issues': 'Закрытые проблемы',
+  'Closed': 'Закрыт',
+  'Open pull requests': 'Открытые запросы',
+  'Closed pull requests': 'Закрытые запросы',
+  'Draft': 'Черновик',
+  'Merged': 'Слит',
+  'Pending': 'Ожидание',
+  'Subscribe': 'Подделиться',
+  'Unsubscribe': 'Отписаться',
+  'Comment': 'Комментарий',
+  'Comments': 'Комментарии',
+  'Review': 'Обзор',
+  'Reviews': 'Обзоры',
+  'Approve': 'Одобрить',
+  'Request changes': 'Запросить изменения',
+  'Reply': 'Ответить',
+  'Owner': 'Владелец',
+  'Organization': 'Организация',
+  'Team': 'Команда',
+  'Members': 'Участники',
+  'Member': 'Участник',
+  'Admin': 'Админ',
+  'Collaborators': 'Коллабораторы',
+  'Contributing': 'Вклад',
+  'Code of conduct': 'Кодекс поведения',
+  'Audit log': 'Журнал аудита',
+  'People': 'Люди',
+  'Topology': 'Топология',
+  'Dependabot': 'Депендабот',
+  'Pages': 'Страницы',
+  'Environments': 'Среды',
+  'Workflows': 'Рабочие процессы',
+  'Cache': 'Кэш',
+  'Dependencies': 'Зависимости',
+  'Vulnerabilities': 'Уязвимости',
+  'Alerts': 'Предупреждения',
+  'Graphs': 'Графики',
+  'Network': 'Сеть',
+  'Activity': 'Активность',
+  'Traffic': 'Трафик',
+  'Caches': 'Кэши',
+  'Versions': 'Версии'
+};
+
+function translateText(text) {
+  return translations[text] || text;
+}
+
+function translatePage() {
+  const elements = document.querySelectorAll('*');
+  
+  elements.forEach(function(element) {
+    if (element.tagName === 'SCRIPT' || 
+        element.tagName === 'STYLE' || 
+        element.closest('[data-translator-ignored]')) {
+      return;
+    }
+    
+    const text = element.textContent.trim();
+    
+    if (text && translations[text]) {
+      const originalText = element.textContent;
+      element.textContent = originalText.replace(text, translations[text]);
+      element.classList.add('translated');
+    }
+  });
+}
+
+setTimeout(translatePage, 1000);
+
+const observer = new MutationObserver(translatePage);
+observer.observe(document.body, { childList: true, subtree: true });
