@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Настройки GitHub AI Translator</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; max-width: 500px; }
+    input { width: 100%; padding: 10px; margin: 10px 0; }
+    button { background: #238636; color: white; padding: 10px 20px; border: none; cursor: pointer; }
+    button:hover { background: #2ea043; }
+    .success { color: green; margin-top: 10px; }
+  </style>
+</head>
+<body>
+  <h1>🔧 Настройки GitHub AI Translator</h1>
+  <label for="apiKey">DeepL API Key:</label>
+  <input type="password" id="apiKey" placeholder="xxxxxx-xxxxxx-xxxxxx-xxxxxx">
+  <button id="save">Сохранить</button>
+  <div id="message" class="success"></div>
+
+  <script>
+    // Загрузить сохранённый ключ
+    chrome.storage.sync.get(['deeplApiKey'], (result) => {
+      if (result.deeplApiKey) {
+        document.getElementById('apiKey').value = result.deeplApiKey;
+      }
+    });
+
+    // Сохранить ключ
+    document.getElementById('save').addEventListener('click', () => {
+      const key = document.getElementById('apiKey').value;
+      chrome.storage.sync.set({ deeplApiKey: key }, () => {
+        document.getElementById('message').textContent = '✅ API key сохранён!';
+        setTimeout(() => { document.getElementById('message').textContent = ''; }, 3000);
+      });
+    });
+  </script>
+</body>
+</html>
