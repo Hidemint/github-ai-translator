@@ -1,10 +1,19 @@
-// background.js - фоновый процесс для обхода CORS
+// GitHub AI Translator - background.js
+// Обрабатывает запросы к Ollama и обходит CORS
 
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
-  if (request.action === 'translateWithOllama') {
-    const text = request.text;
+  if (request.action === 'translate') {
+    translateWithOllama(request.text)
+      .then(result => sendResponse({ success: true, translated: result }))
+      .catch(error => sendResponse({ success: false, error: error.message }));
+    return true; // Обязательно для async sendResponse
+  }
+});
 
-    fetch('http://localhost:11434/api/generate', {
+// Функция перевода через Ollama (здесь работает без CORS ограничений)
+async function translateWithOllama(text) {
+  try {
+    const response = await fetch('http://localhost:11434/api/generate', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -18,18 +27,17 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
 Перевод:`,
         stream: false
       })
-    })
-    .then(response => response.json())
-    .then(data => {
-      const translated = data.response.trim();
-      const cleanTranslation = translated.replace(/^переведи|^перевод:|^текст:/i, '').trim();
-      sendResponse({ success: true, translated: cleanTranslation });
-    })
-    .catch(error => {
-      console.error('Ошибка Ollama в background:', error);
-      sendResponse({ success: false, error: error.message });
     });
 
-    return true; // Асинхронный ответ
+    if (!response.ok) {
+      throw new Error(`Ollama API error: ${response.status}`);
+    }
+
+    const data = await response.json();
+    return data.response.trim();
+
+  } catch (error) {
+    console.error('Ошибка Ollama в background:', error);
+    throw error;
   }
-});
+}
